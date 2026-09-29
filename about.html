@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Shivansh Gupta, Student Developer | Shivansh Writes</title>
+  <meta name="description" content="About Shivansh Gupta: a computer science student learning Java, Spring Boot, web development and artificial intelligence, and the projects he is building.">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <noscript><style>.reveal { opacity: 1; transform: none; } .nav { display: block; }</style></noscript>
+</head>
+
+<body data-page="about">
+
+<div class="progress-bar" aria-hidden="true"><div class="progress-bar__fill" data-progress></div></div>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="index.html"><span class="logo__mark">&#10022;</span>SHIVANSH&nbsp;WRITES</a>
+
+    <nav class="nav" id="primary-nav" aria-label="Main navigation">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html">Home</a></li>
+        <li><a class="nav__link" href="blog.html">Blog</a></li>
+        <li><a class="nav__link" href="categories.html">Categories</a></li>
+        <li><a class="nav__link" href="about.html" aria-current="page">About</a></li>
+        <li><a class="nav__link" href="editor.html">Write</a></li>
+        <li><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" data-search-open aria-label="Search articles">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      </button>
+      <button class="icon-btn" data-theme-toggle aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 13.2A8.5 8.5 0 1110.8 3a6.8 6.8 0 1010.2 10.2z"/></svg>
+      </button>
+      <a class="btn btn--primary btn--sm hide-mobile" href="index.html#newsletter">Subscribe</a>
+      <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-head">
+    <div class="container">
+      <span class="eyebrow" data-profile-tagline>Student • Developer • Curious Learner</span>
+      <h1 class="display">A little about me</h1>
+      <p class="lede">
+        I write to think clearly. Everything published here started as a note in a notebook,
+        and most of it is still slightly unfinished.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================ BIO ============================ -->
+  <section class="section">
+    <div class="container">
+      <div class="split">
+
+        <!-- left column: portrait, quick facts, social links -->
+        <div>
+          <!-- replace images/avatar.jpg with a real photo later — nothing else changes -->
+          <img data-profile-avatar src="images/avatar.jpg" alt="Portrait of Shivansh Gupta"
+               width="440" height="440"
+               style="border-radius:var(--radius-lg);border:1px solid var(--line)">
+
+          <div class="card" style="margin-top:24px">
+            <h3 style="font-size:17px;font-weight:500;margin-bottom:16px">Quick facts</h3>
+            <ul style="font-size:14.5px;color:var(--ink-2)" data-profile-facts></ul>
+          </div>
+
+          <h3 style="font-size:17px;font-weight:500;margin:28px 0 14px">Find me elsewhere</h3>
+          <div class="pill-row" data-social-links style="gap:10px"></div>
+          <p class="muted" style="font-size:12.5px;margin-top:12px">
+            These are placeholders on purpose — add your own links in <code>js/data.js</code>.
+          </p>
+
+          <a class="btn btn--primary" href="contact.html" style="margin-top:20px;width:100%">Say hello</a>
+        </div>
+
+        <!-- right column: the story, learning list and skills -->
+        <div class="prose" style="max-width:none">
+          <h2 class="headline-md" style="margin-top:0;font-size:26px" data-profile-name>Shivansh Gupta</h2>
+          <p class="muted" style="font-size:14px;margin-top:6px" data-profile-role>Computer Science Student</p>
+
+          <!-- the About Me paragraphs come from SW.profile.aboutMe -->
+          <div data-profile-about></div>
+
+          <h2 id="currently-learning">Currently learning</h2>
+          <p>These are the things I am actively working on right now — not a wish list, just
+             what is actually open in my editor and my notes.</p>
+          <ul style="list-style:none;padding-left:0;display:grid;gap:10px" data-profile-learning></ul>
+
+          <h2 id="skills">Skills</h2>
+          <p>Languages and tools I have used in coursework or in my own projects. I would
+             call myself comfortable with the first few and still learning the rest.</p>
+          <div class="pill-row" data-profile-skills></div>
+
+          <h2 id="why">Why this blog exists</h2>
+          <p>
+            Writing forces me to notice the difference between recognising an idea and
+            understanding it. In a semester full of deadlines, this blog is the one place
+            where I am allowed to be slow — and slow is where the useful thoughts live.
+          </p>
+
+          <blockquote>
+            I'd rather publish an honest draft than wait for a perfect argument that never arrives.
+          </blockquote>
+
+          <p>
+            If something here helps you, or if you spot a mistake, please
+            <a href="contact.html">write to me</a>. Corrections are the nicest kind of mail.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== PROJECTS =========================== -->
+  <section class="section section--tint" id="projects">
+    <div class="container">
+
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Things I have built</span>
+          <h2 class="headline" style="margin-top:14px">Projects</h2>
+          <p class="section-sub">
+            Small, honest projects — each one taught me something I could not have learned
+            from a tutorial alone.
+          </p>
+        </div>
+        <a class="link" href="contact.html"><span>Ask me about them</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="grid-subjects grid-subjects--3" data-profile-projects></div>
+
+    </div>
+  </section>
+
+  <!-- ======================= WHAT I WRITE ABOUT ======================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Writing Subjects</span>
+          <h2 class="headline" style="margin-top:14px">What you will find here</h2>
+        </div>
+        <a class="link" href="blog.html"><span>Browse articles</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="grid-subjects grid-subjects--3" data-profile-subjects></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">SHIVANSH WRITES</div>
+        <p class="footer__about">
+          A personal publication by Shivansh Gupta, a computer science student writing about
+          programming, artificial intelligence, web development, projects and student life.
+        </p>
+        <p class="footer__copy">Built with curiosity &amp; code. &copy; <span data-year>2026</span> Shivansh Gupta. All rights reserved.</p>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="editor.html">Write</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Elsewhere</h4>
+          <ul data-footer-social></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>Curated and written with love &amp; a Linux terminal.</span>
+      <span>Version 1.0 &middot; Archived Editions</span>
+    </div>
+  </div>
+</footer>
+
+<div class="search-overlay" data-search-overlay role="dialog" aria-label="Search articles" aria-modal="true">
+  <div class="search-panel">
+    <label class="sr-only" for="site-search">Search articles</label>
+    <input id="site-search" type="search" placeholder="Search articles&hellip;" data-search-input autocomplete="off">
+    <div class="search-results" data-search-results></div>
+  </div>
+</div>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/articles-1.js"></script>
+<script src="js/articles-2.js"></script>
+<script src="js/articles-3.js"></script>
+<script src="js/store.js"></script>
+<script src="js/render.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- The title is replaced by js/render.js with the real article title -->
+  <title>Article — Shivansh Writes</title>
+  <meta name="description" content="A long-form article from Shivansh Writes, a student developer blog about programming, AI, web development and college life.">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <noscript><style>.reveal { opacity: 1; transform: none; } .nav { display: block; }</style></noscript>
+</head>
+
+<!-- this page reads ?slug=... from the URL to decide which article to show -->
+<body data-page="article">
+
+<div class="progress-bar" aria-hidden="true"><div class="progress-bar__fill" data-progress></div></div>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="index.html"><span class="logo__mark">&#10022;</span>SHIVANSH&nbsp;WRITES</a>
+
+    <nav class="nav" id="primary-nav" aria-label="Main navigation">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html">Home</a></li>
+        <li><a class="nav__link" href="blog.html" aria-current="page">Blog</a></li>
+        <li><a class="nav__link" href="categories.html">Categories</a></li>
+        <li><a class="nav__link" href="about.html">About</a></li>
+        <li><a class="nav__link" href="editor.html">Write</a></li>
+        <li><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" data-search-open aria-label="Search articles">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      </button>
+      <button class="icon-btn" data-theme-toggle aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 13.2A8.5 8.5 0 1110.8 3a6.8 6.8 0 1010.2 10.2z"/></svg>
+      </button>
+      <a class="btn btn--primary btn--sm hide-mobile" href="index.html#newsletter">Subscribe</a>
+      <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="container">
+    <p style="padding-top:32px;margin:0">
+      <a class="link" href="blog.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        <span>Back to all articles</span>
+      </a>
+    </p>
+  </div>
+
+  <!-- ========================= ARTICLE HEADER ========================= -->
+  <header class="article-header container">
+    <!-- the category badge links to that category's filtered archive -->
+    <a class="badge" href="blog.html" data-article-category>Category</a>
+    <h1 class="display" data-article-title>Loading article…</h1>
+    <p class="lede" data-article-lede></p>
+    <div class="meta" style="margin-top:26px" data-article-meta></div>
+  </header>
+
+  <!-- ========================= ARTICLE BODY ========================= -->
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- the reading column: cover image, content, tags, counters,
+           author card — all inserted by js/render.js -->
+      <article class="prose" data-article-body></article>
+
+      <!-- table of contents, generated from the article's headings -->
+      <aside class="toc" aria-label="Table of contents" data-toc-wrap>
+        <h4>On this page</h4>
+        <nav class="toc__list" data-toc></nav>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- ====================== RELATED ARTICLES ====================== -->
+  <section class="section section--tint" style="margin-top:80px">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Keep Reading</span>
+          <h2 class="headline" style="margin-top:14px">Related articles</h2>
+          <p class="section-sub" data-related-label>Chosen by shared category and tags.</p>
+        </div>
+        <a class="link" href="blog.html"><span>All articles</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <!-- three related articles, scored by category + tags -->
+      <div class="grid-posts" data-related></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">SHIVANSH WRITES</div>
+        <p class="footer__about">
+          A personal publication by Shivansh Gupta, a computer science student writing about
+          programming, artificial intelligence, web development, projects and student life.
+        </p>
+        <p class="footer__copy">Built with curiosity &amp; code. &copy; <span data-year>2026</span> Shivansh Gupta. All rights reserved.</p>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="editor.html">Write</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Elsewhere</h4>
+          <ul data-footer-social></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>Curated and written with love &amp; a Linux terminal.</span>
+      <span>Version 1.0 &middot; Archived Editions</span>
+    </div>
+  </div>
+</footer>
+
+<div class="search-overlay" data-search-overlay role="dialog" aria-label="Search articles" aria-modal="true">
+  <div class="search-panel">
+    <label class="sr-only" for="site-search">Search articles</label>
+    <input id="site-search" type="search" placeholder="Search articles&hellip;" data-search-input autocomplete="off">
+    <div class="search-results" data-search-results></div>
+  </div>
+</div>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/articles-1.js"></script>
+<script src="js/articles-2.js"></script>
+<script src="js/articles-3.js"></script>
+<script src="js/store.js"></script>
+<script src="js/render.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

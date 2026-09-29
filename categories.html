@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories — Explore by Subject | Shivansh Writes</title>
+  <meta name="description" content="Browse articles by subject: technology, artificial intelligence, programming, projects, student life, productivity and personal notes.">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <noscript><style>.reveal { opacity: 1; transform: none; } .nav { display: block; }</style></noscript>
+</head>
+
+<body data-page="categories">
+
+<div class="progress-bar" aria-hidden="true"><div class="progress-bar__fill" data-progress></div></div>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="index.html"><span class="logo__mark">&#10022;</span>SHIVANSH&nbsp;WRITES</a>
+
+    <nav class="nav" id="primary-nav" aria-label="Main navigation">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html">Home</a></li>
+        <li><a class="nav__link" href="blog.html">Blog</a></li>
+        <li><a class="nav__link" href="categories.html" aria-current="page">Categories</a></li>
+        <li><a class="nav__link" href="about.html">About</a></li>
+        <li><a class="nav__link" href="editor.html">Write</a></li>
+        <li><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" data-search-open aria-label="Search articles">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      </button>
+      <button class="icon-btn" data-theme-toggle aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 13.2A8.5 8.5 0 1110.8 3a6.8 6.8 0 1010.2 10.2z"/></svg>
+      </button>
+      <a class="btn btn--primary btn--sm hide-mobile" href="index.html#newsletter">Subscribe</a>
+      <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-head">
+    <div class="container">
+      <span class="eyebrow">Knowledge Taxonomy</span>
+      <h1 class="display">Explore by Subject</h1>
+      <p class="lede">
+        Seven recurring themes run through this blog — the technology I am curious about, the
+        intelligence I am learning, the code I write, the things I build, college life, the
+        habits that keep it going, and the personal notes in between.
+      </p>
+      <p class="meta" style="margin-top:20px" data-category-summary></p>
+    </div>
+  </section>
+
+  <!-- ===================== CATEGORY OVERVIEW CARDS ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-subjects grid-subjects--3" data-category-grid></div>
+    </div>
+  </section>
+
+  <!-- ====================== RECENT ACROSS SUBJECTS ====================== -->
+  <section class="section section--tint">
+    <div class="container">
+
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Latest in each subject</span>
+          <h2 class="headline" style="margin-top:14px">Recently filed under</h2>
+        </div>
+        <a class="link" href="blog.html"><span>See the full archive</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="grid-posts" data-category-recent></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">SHIVANSH WRITES</div>
+        <p class="footer__about">
+          A personal publication by Shivansh Gupta, a computer science student writing about
+          programming, artificial intelligence, web development, projects and student life.
+        </p>
+        <p class="footer__copy">Built with curiosity &amp; code. &copy; <span data-year>2026</span> Shivansh Gupta. All rights reserved.</p>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="editor.html">Write</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Elsewhere</h4>
+          <ul data-footer-social></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>Curated and written with love &amp; a Linux terminal.</span>
+      <span>Version 1.0 &middot; Archived Editions</span>
+    </div>
+  </div>
+</footer>
+
+<div class="search-overlay" data-search-overlay role="dialog" aria-label="Search articles" aria-modal="true">
+  <div class="search-panel">
+    <label class="sr-only" for="site-search">Search articles</label>
+    <input id="site-search" type="search" placeholder="Search articles&hellip;" data-search-input autocomplete="off">
+    <div class="search-results" data-search-results></div>
+  </div>
+</div>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/articles-1.js"></script>
+<script src="js/articles-2.js"></script>
+<script src="js/articles-3.js"></script>
+<script src="js/store.js"></script>
+<script src="js/render.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shivansh Writes — Thoughts, ideas &amp; things I'm learning</title>
+  <meta name="description" content="A personal blog by Shivansh Gupta, a computer science student writing about programming, artificial intelligence, web development, projects and college life.">
+  <meta name="author" content="Shivansh Gupta">
+
+  <!-- Fonts are stored in the project folder, so the site also works offline -->
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- If JavaScript is switched off, show the fade-in elements immediately -->
+  <noscript><style>.reveal { opacity: 1; transform: none; } .nav { display: block; }</style></noscript>
+</head>
+
+<!-- data-page tells js/render.js which renderer to run -->
+<body data-page="home">
+
+<div class="progress-bar" aria-hidden="true"><div class="progress-bar__fill" data-progress></div></div>
+
+<!-- ============================ HEADER ============================ -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="index.html"><span class="logo__mark">&#10022;</span>SHIVANSH&nbsp;WRITES</a>
+
+    <nav class="nav" id="primary-nav" aria-label="Main navigation">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html" aria-current="page">Home</a></li>
+        <li><a class="nav__link" href="blog.html">Blog</a></li>
+        <li><a class="nav__link" href="categories.html">Categories</a></li>
+        <li><a class="nav__link" href="about.html">About</a></li>
+        <li><a class="nav__link" href="editor.html">Write</a></li>
+        <li><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" data-search-open aria-label="Search articles">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      </button>
+      <button class="icon-btn" data-theme-toggle aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 13.2A8.5 8.5 0 1110.8 3a6.8 6.8 0 1010.2 10.2z"/></svg>
+      </button>
+      <a class="btn btn--primary btn--sm hide-mobile" href="#newsletter">Subscribe</a>
+      <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
+    <div class="container hero__inner">
+
+      <div class="hero__text">
+        <!-- the tagline comes from SW.profile.tagline -->
+        <span class="eyebrow" data-hero-tagline>Student • Developer • Curious Learner</span>
+
+        <h1 class="display">
+          Thoughts, ideas &amp; things<br>
+          <em>I'm learning.</em>
+        </h1>
+
+        <p class="lede" data-hero-bio>
+          A computer science student writing about programming, artificial intelligence,
+          web development and the projects I build along the way.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="blog.html">
+            Explore Articles
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--outline" href="about.html">About Me</a>
+        </div>
+
+        <!-- statistics are calculated from the article data -->
+        <div class="stats" data-hero-stats></div>
+      </div>
+
+      <figure class="hero__media">
+        <img data-hero-image src="images/hero-student.jpg" alt="Shivansh writing notes beside an open laptop at his desk" width="760" height="1362">
+        <figcaption class="hero__caption">
+          <span class="glyph" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg>
+          </span>
+          <span>
+            <small>Desk Dispatch</small>
+            <strong data-hero-caption>Notes, code &amp; college life</strong>
+          </span>
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ======================= FEATURED STORY ======================= -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-head">
+        <span class="eyebrow">Featured Story</span>
+        <span class="meta" data-issue>Issue No. 12</span>
+      </div>
+
+      <!-- filled from the article marked featured: true in the data -->
+      <article class="featured__card reveal" data-featured></article>
+
+    </div>
+  </section>
+
+  <!-- ======================= LATEST ARTICLES ======================= -->
+  <section class="section section--tint">
+    <div class="container">
+
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Archive &amp; Freshness</span>
+          <h2 class="headline" style="margin-top:14px">Latest from the blog</h2>
+        </div>
+        <a class="link" href="blog.html">
+          <span>View all articles</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <!-- the six newest articles -->
+      <div class="grid-posts" data-latest></div>
+    </div>
+  </section>
+
+  <!-- ======================= POPULAR ARTICLES ======================= -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Most Read</span>
+          <h2 class="headline" style="margin-top:14px">Popular this season</h2>
+          <p class="section-sub">The three articles with the highest view counts so far.</p>
+        </div>
+        <a class="link" href="blog.html">
+          <span>Browse the archive</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <!-- sorted by view count -->
+      <div class="grid-posts" data-popular></div>
+    </div>
+  </section>
+
+  <!-- ======================= EXPLORE BY SUBJECT ======================= -->
+  <section class="section section--tint">
+    <div class="container">
+
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Knowledge Taxonomy</span>
+          <h2 class="headline" style="margin-top:14px">Explore by Subject</h2>
+        </div>
+        <a class="link" href="categories.html">
+          <span>View all</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <!-- all seven categories, with live article counts -->
+      <div class="grid-subjects grid-subjects--3" data-categories></div>
+
+    </div>
+  </section>
+
+  <!-- =========================== THE AUTHOR =========================== -->
+  <section class="section">
+    <div class="container">
+      <div class="author-box reveal" data-author-preview></div>
+    </div>
+  </section>
+
+  <!-- =========================== NEWSLETTER =========================== -->
+  <section class="section" id="newsletter" style="padding-top:0">
+    <div class="container">
+      <div class="newsletter reveal">
+        <span class="newsletter__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
+        </span>
+        <h2 class="headline">Delivered to your inbox on Sundays</h2>
+        <p>No spam, no hype cycles. Just one thoughtful long-form essay every weekend on programming, artificial intelligence, projects and university life.</p>
+
+        <form class="subscribe-form" data-subscribe-form novalidate>
+          <label class="sr-only" for="sub-email-home">Email address</label>
+          <input id="sub-email-home" type="email" name="email" placeholder="Enter your email address..." autocomplete="email">
+          <button class="btn btn--primary" type="submit">Join 1,200+ Readers</button>
+        </form>
+        <p class="form-note" data-form-note role="status"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">SHIVANSH WRITES</div>
+        <p class="footer__about">
+          A personal publication by Shivansh Gupta, a computer science student writing about
+          programming, artificial intelligence, web development, projects and student life.
+        </p>
+        <p class="footer__copy">Built with curiosity &amp; code. &copy; <span data-year>2026</span> Shivansh Gupta. All rights reserved.</p>
+      </div>
+
+      <div class="footer__cols">
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="editor.html">Write</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Elsewhere</h4>
+          <!-- links come from SW.social; they show a placeholder until filled in -->
+          <ul data-footer-social></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>Curated and written with love &amp; a Linux terminal.</span>
+      <span>Version 1.0 &middot; Archived Editions</span>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ======================= SEARCH OVERLAY + TOAST ======================= -->
+<div class="search-overlay" data-search-overlay role="dialog" aria-label="Search articles" aria-modal="true">
+  <div class="search-panel">
+    <label class="sr-only" for="site-search">Search articles</label>
+    <input id="site-search" type="search" placeholder="Search articles&hellip;" data-search-input autocomplete="off">
+    <div class="search-results" data-search-results></div>
+  </div>
+</div>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+
+<!-- ========================= DATA + SCRIPTS ========================= -->
+<!-- 1. content  2. more content  3. view  4. interactions -->
+<script src="js/data.js"></script>
+<script src="js/articles-1.js"></script>
+<script src="js/articles-2.js"></script>
+<script src="js/articles-3.js"></script>
+<script src="js/store.js"></script>
+<script src="js/render.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

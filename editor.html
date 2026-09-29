@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Write — Create &amp; Edit Posts | Shivansh Writes</title>
+  <meta name="description" content="Write a new article, edit published ones, save drafts and export a backup — all in the browser.">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <noscript><style>.reveal { opacity: 1; transform: none; } .nav { display: block; }</style></noscript>
+</head>
+
+<body data-page="editor">
+
+<div class="progress-bar" aria-hidden="true"><div class="progress-bar__fill" data-progress></div></div>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="index.html"><span class="logo__mark">&#10022;</span>SHIVANSH&nbsp;WRITES</a>
+
+    <nav class="nav" id="primary-nav" aria-label="Main navigation">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html">Home</a></li>
+        <li><a class="nav__link" href="blog.html">Blog</a></li>
+        <li><a class="nav__link" href="categories.html">Categories</a></li>
+        <li><a class="nav__link" href="about.html">About</a></li>
+        <li><a class="nav__link" href="editor.html" aria-current="page">Write</a></li>
+        <li><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" data-search-open aria-label="Search articles">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      </button>
+      <button class="icon-btn" data-theme-toggle aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 13.2A8.5 8.5 0 1110.8 3a6.8 6.8 0 1010.2 10.2z"/></svg>
+      </button>
+      <a class="btn btn--primary btn--sm hide-mobile" href="index.html#newsletter">Subscribe</a>
+      <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ========================= PAGE TITLE ========================= -->
+  <section class="page-head">
+    <div class="container">
+      <span class="eyebrow">The Writing Desk</span>
+      <h1 class="display">Create, edit &amp; publish</h1>
+      <p class="lede">
+        Write a new article in plain text, tweak an existing one, save a draft, and it appears
+        across the site instantly — home page, blog grid, categories, search and article pages.
+      </p>
+      <div class="pill-row" style="margin-top:22px" data-editor-counters></div>
+      <p class="muted" style="font-size:13px;margin-top:16px;max-width:70ch">
+        <strong>How this works:</strong> posts you write are saved in this browser’s
+        <code>localStorage</code> and merged with the twelve starter articles, so the site stays
+        a fast static website (perfect for GitHub Pages) with no server. Use
+        <strong>Export backup</strong> to download everything as JSON, and
+        <strong>Import</strong> to load it on another device.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================= THE EDITOR ========================= -->
+  <section class="section" style="padding-top:44px">
+    <div class="container">
+      <div class="editor-layout">
+
+        <!-- ---------------- left: the writing area ---------------- -->
+        <form class="card" data-post-form novalidate>
+          <div class="editor-mode" data-editor-mode>Writing a new post</div>
+
+          <div class="field">
+            <label for="p-title">Title *</label>
+            <input id="p-title" type="text" data-field="title" placeholder="e.g. What I Learned This Week">
+          </div>
+
+          <div class="field">
+            <label for="p-body">Article content *</label>
+
+            <!-- small Markdown toolbar -->
+            <div class="md-toolbar">
+              <button type="button" class="chip" data-md data-before="## " data-after="" data-sample="Section heading">Heading</button>
+              <button type="button" class="chip" data-md data-before="**" data-after="**" data-sample="important">Bold</button>
+              <button type="button" class="chip" data-md data-before="*" data-after="*" data-sample="emphasis">Italic</button>
+              <button type="button" class="chip" data-md data-before="- " data-after="" data-sample="first point">List</button>
+              <button type="button" class="chip" data-md data-before="&gt; " data-after="" data-sample="A line worth quoting.">Quote</button>
+              <button type="button" class="chip" data-md data-before="`" data-after="`" data-sample="code">Code</button>
+              <button type="button" class="chip" data-md data-before="```&#10;" data-after="&#10;```" data-sample="console.log('hello');">Code block</button>
+              <button type="button" class="chip" data-md data-before="[" data-after="](https://example.com)" data-sample="link text">Link</button>
+            </div>
+
+            <textarea id="p-body" rows="18" data-field="body"
+              placeholder="Start writing.&#10;&#10;Press Enter twice for a new paragraph.&#10;## makes a section heading, - makes a bullet list, > makes a quote."></textarea>
+            <span class="form-note" data-word-count></span>
+          </div>
+
+          <div class="field">
+            <label for="p-preview">Live preview</label>
+            <div id="p-preview" class="prose editor-preview" data-preview style="max-width:none"></div>
+          </div>
+
+          <div class="pill-row">
+            <button class="btn btn--primary" type="submit" data-action="publish">
+              Publish post
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <button class="btn btn--outline" type="button" data-action="draft">Save as draft</button>
+            <button class="btn btn--outline" type="button" data-action="new">New blank post</button>
+            <button class="btn btn--outline" type="button" data-action="preview-toggle">Show / hide preview</button>
+          </div>
+          <p class="form-note" data-editor-status role="status"></p>
+        </form>
+
+        <!-- ---------------- right: the publish panel ---------------- -->
+        <aside class="editor-side">
+
+          <div class="card">
+            <h3 style="font-size:17px;font-weight:500;margin-bottom:18px">Post details</h3>
+
+            <input type="hidden" data-field="id">
+
+            <div class="field">
+              <label for="p-category">Category</label>
+              <select id="p-category" data-field="category"></select>
+            </div>
+
+            <div class="field">
+              <label for="p-date">Publish date</label>
+              <input id="p-date" type="date" data-field="date">
+            </div>
+
+            <div class="field">
+              <label for="p-read">Reading time <span class="muted">(auto if left empty)</span></label>
+              <input id="p-read" type="text" data-field="readingTime" placeholder="e.g. 5 min read">
+            </div>
+
+            <div class="field">
+              <label for="p-desc">Short description <span class="muted">(shown on cards)</span></label>
+              <textarea id="p-desc" rows="3" data-field="description" placeholder="One or two lines that make someone want to read it."></textarea>
+            </div>
+
+            <div class="field">
+              <label for="p-tags">Tags <span class="muted">(comma separated)</span></label>
+              <input id="p-tags" type="text" data-field="tags" placeholder="Java, Learning, College">
+            </div>
+
+            <div class="field">
+              <label for="p-views">View count</label>
+              <input id="p-views" type="number" min="0" data-field="views" value="0">
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size:17px;font-weight:500;margin-bottom:6px">Cover image</h3>
+            <p class="muted" style="font-size:13px;margin:0 0 14px">
+              Pick one below, paste a path/URL, or upload your own (it is resized automatically).
+            </p>
+
+            <div class="thumb-grid" data-image-picker></div>
+
+            <div class="field" style="margin-top:16px;margin-bottom:12px">
+              <label for="p-image">Image path or URL</label>
+              <input id="p-image" type="text" data-field="image" value="images/post-1.jpg">
+            </div>
+
+            <label class="btn btn--outline btn--sm" style="width:100%">
+              Upload an image
+              <input type="file" accept="image/*" data-upload hidden>
+            </label>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size:17px;font-weight:500;margin-bottom:14px">Backup</h3>
+            <div class="pill-row">
+              <button class="btn btn--outline btn--sm" type="button" data-action="export">Export backup (.json)</button>
+              <button class="btn btn--outline btn--sm" type="button" data-action="import">Import backup</button>
+              <input type="file" accept="application/json,.json" data-import-input hidden>
+              <button class="btn btn--outline btn--sm" type="button" data-action="reset">Clear editor data</button>
+            </div>
+            <p class="muted" style="font-size:12.5px;margin:14px 0 0">
+              Your posts live in this browser only. Export before clearing your browser data or
+              switching computers.
+            </p>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MANAGE EXISTING POSTS ==================== -->
+  <section class="section section--tint">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Manage</span>
+          <h2 class="headline" style="margin-top:14px">Your posts</h2>
+          <p class="section-sub">
+            Everything you have written or edited in this browser. Drafts are hidden from
+            visitors until you publish them.
+          </p>
+        </div>
+        <a class="link" href="blog.html"><span>See them on the blog</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="filters" style="margin-bottom:18px">
+        <label class="sr-only" for="post-search">Search posts</label>
+        <input id="post-search" type="search" data-post-search placeholder="Search posts by title, category or tag…"
+               style="width:100%;max-width:420px;padding:11px 16px;background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--radius-pill);font-size:14px">
+      </div>
+
+      <p class="meta" style="margin-bottom:18px" data-post-count></p>
+
+      <div data-post-list></div>
+
+      <div class="card" style="margin-top:28px;background:var(--surface)">
+        <h3 style="font-size:16px;font-weight:500;margin-bottom:12px">Writing tips</h3>
+        <ul style="font-size:14.5px;color:var(--ink-2);line-height:1.9">
+          <li><strong>500–800 words</strong> is a comfortable length for one article — aim for 3 to 5 sections.</li>
+          <li>Use <code>##</code> for section headings; they automatically build the table of contents on the article page.</li>
+          <li>Write a real description: it is what people see on cards, in search results and in previews.</li>
+          <li>Add 3 or 4 tags — they power search and the “related articles” list at the bottom of each post.</li>
+          <li>Press <strong>Ctrl / Cmd + S</strong> to save a draft quickly while writing.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">SHIVANSH WRITES</div>
+        <p class="footer__about">
+          A personal publication by Shivansh Gupta, a computer science student writing about
+          programming, artificial intelligence, web development, projects and student life.
+        </p>
+        <p class="footer__copy">Built with curiosity &amp; code. &copy; <span data-year>2026</span> Shivansh Gupta. All rights reserved.</p>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="editor.html">Write</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Elsewhere</h4>
+          <ul data-footer-social></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>Curated and written with love &amp; a Linux terminal.</span>
+      <span>Version 1.1 &middot; With Editor</span>
+    </div>
+  </div>
+</footer>
+
+<div class="search-overlay" data-search-overlay role="dialog" aria-label="Search articles" aria-modal="true">
+  <div class="search-panel">
+    <label class="sr-only" for="site-search">Search articles</label>
+    <input id="site-search" type="search" placeholder="Search articles&hellip;" data-search-input autocomplete="off">
+    <div class="search-results" data-search-results></div>
+  </div>
+</div>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/articles-1.js"></script>
+<script src="js/articles-2.js"></script>
+<script src="js/articles-3.js"></script>
+<script src="js/store.js"></script>
+<script src="js/render.js"></script>
+<script src="js/site.js"></script>
+<!-- the editor logic is only needed on this page -->
+<script src="js/editor.js"></script>
+</body>
+</html>
